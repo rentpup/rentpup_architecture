@@ -31,9 +31,13 @@ flowchart TD
   P --> M["Outreach naming the specific<br/>property and obligation"]
   M --> AT["Direct mail attribution<br/>back to accounts"]
 
-  classDef product fill:#1f6feb22,stroke:#1f6feb,color:inherit
-  classDef growth fill:#2da44e22,stroke:#2da44e,color:inherit
-  classDef refuse fill:#bf8def22,stroke:#8957e5,color:inherit
+  %% Stroke only, never fill or text colour. GitHub renders this diagram in
+  %% whichever theme the reader is using, and a fill that looks right in one
+  %% theme puts dark text on a dark box in the other. Borders carry the
+  %% distinction and the label keeps the theme's own text colour.
+  classDef product stroke:#1f6feb,stroke-width:2px
+  classDef growth stroke:#2da44e,stroke-width:2px
+  classDef refuse stroke:#8957e5,stroke-width:2px
   class D,O,AL product
   class L,P,M,AT growth
   class X,U refuse
