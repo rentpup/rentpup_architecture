@@ -14,6 +14,33 @@ This repository is documentation. The application source is private, because the
 
 Two systems, built separately, that happen to share the same data.
 
+```mermaid
+flowchart TD
+  A["City of Cleveland records"] --> N["Normalize and match<br/>to a property identity"]
+  B["Cuyahoga County records"] --> N
+  N --> S[("Structured property state<br/>held over time")]
+
+  S --> D["Scheduled sync:<br/>diff against what was held"]
+  D --> O["Recompute obligation statuses"]
+  O --> X{"Do the records<br/>establish an answer?"}
+  X -->|yes| AL["Deadline notifications<br/>to the owner"]
+  X -->|no| U["Report status as Unknown.<br/>Do not infer."]
+
+  S --> L["Lead engine:<br/>score owners on their own records"]
+  L --> P["Prioritize who to contact first"]
+  P --> M["Outreach naming the specific<br/>property and obligation"]
+  M --> AT["Direct mail attribution<br/>back to accounts"]
+
+  classDef product fill:#1f6feb22,stroke:#1f6feb,color:inherit
+  classDef growth fill:#2da44e22,stroke:#2da44e,color:inherit
+  classDef refuse fill:#bf8def22,stroke:#8957e5,color:inherit
+  class D,O,AL product
+  class L,P,M,AT growth
+  class X,U refuse
+```
+
+The left branch is the product. The right branch is how the product finds customers. The purple branch is the part worth arguing about, and it is covered below.
+
 ### 1. The compliance engine (the product)
 
 **Collection.** Pulls from multiple City of Cleveland and Cuyahoga County public record sources on a recurring schedule and associates each record with the right property. No owner action is required after the initial setup.
