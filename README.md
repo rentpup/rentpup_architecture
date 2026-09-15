@@ -93,6 +93,13 @@ The honest division of labor: I architect and integrate. I am not a career softw
 
 ---
 
+## More detail
+
+- **[The lead engine](./LEAD-ENGINE.md)** - how the same records that warn a customer also identify the next one, what it ranks on, and what it refuses to do.
+- **[Decisions](./DECISIONS.md)** - the choices that were not obvious, what each one cost, and the problems still open.
+
+---
+
 ## Why this repository exists
 
 Most of what I have built is either commercial or lives inside someone else's company. This is a public description of a system that is actually running, written so the design decisions are visible without exposing the product.
